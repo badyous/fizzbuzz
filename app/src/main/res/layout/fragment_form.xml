@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="18dp"
+    tools:context=".ui.FormFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/first_int_textinput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@android:color/holo_blue_dark"
+        app:layout_constraintEnd_toStartOf="@id/second_int_textinput_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/first_int_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789"
+            android:hint="@string/le_premier_chiffre"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="14sp"
+            tools:ignore="Autofill" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/second_int_textinput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColorHint="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/first_int_textinput_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/first_int_textinput_layout"
+        app:layout_constraintTop_toTopOf="@+id/first_int_textinput_layout">
+
+        <EditText
+            android:id="@+id/second_int_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:digits="0123456789"
+            android:hint="@string/le_second_chiffre"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="14sp"
+            tools:ignore="Autofill,TextFields" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/first_string_textinput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColorHint="@android:color/holo_blue_dark"
+        app:layout_constraintEnd_toStartOf="@id/second_string_textinput_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_int_textinput_layout">
+
+        <EditText
+            android:id="@+id/first_string_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/le_premier_mot"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLength="24"
+            android:maxLines="1"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="14sp"
+            tools:ignore="Autofill,TextFields" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/second_string_textinput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColorHint="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/first_string_textinput_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/first_string_textinput_layout"
+        app:layout_constraintTop_toTopOf="@+id/first_string_textinput_layout">
+
+        <EditText
+            android:id="@+id/second_string_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/le_second_mot"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLength="24"
+            android:maxLines="1"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="14sp"
+            tools:ignore="Autofill" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/limit_textinput_layout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:textColorHint="@android:color/holo_blue_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_string_textinput_layout">
+
+        <EditText
+            android:id="@+id/limit_int_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:digits="123456789"
+            android:hint="@string/la_limite"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="14sp"
+            tools:ignore="Autofill" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/validate_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/valider"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/limit_textinput_layout" />
+
+    <Button
+        android:id="@+id/statistic_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/statistique"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
