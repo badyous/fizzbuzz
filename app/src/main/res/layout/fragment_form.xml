@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="12dp"
-    android:paddingVertical="18dp"
+    android:paddingHorizontal="@dimen/layout_horizontal_margin"
+    android:paddingVertical="@dimen/layout_vertical_margin"
     tools:context=".ui.FormFragment">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -28,7 +28,7 @@
             android:maxLength="6"
             android:maxLines="1"
             android:textColor="@android:color/holo_blue_bright"
-            android:textSize="14sp"
+            android:textSize="@dimen/field_text_size"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -36,7 +36,7 @@
         android:id="@+id/second_int_textinput_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/default_margin"
         android:textColorHint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="@+id/first_int_textinput_layout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +54,7 @@
             android:maxLength="6"
             android:maxLines="1"
             android:textColor="@android:color/holo_blue_bright"
-            android:textSize="14sp"
+            android:textSize="@dimen/field_text_size"
             tools:ignore="Autofill,TextFields" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,7 +62,7 @@
         android:id="@+id/first_string_textinput_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="@dimen/layout_horizontal_margin"
         android:textColorHint="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toStartOf="@id/second_string_textinput_layout"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +78,7 @@
             android:maxLength="24"
             android:maxLines="1"
             android:textColor="@android:color/holo_blue_bright"
-            android:textSize="14sp"
+            android:textSize="@dimen/field_text_size"
             tools:ignore="Autofill,TextFields" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +86,7 @@
         android:id="@+id/second_string_textinput_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/default_margin"
         android:textColorHint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="@+id/first_string_textinput_layout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +103,7 @@
             android:maxLength="24"
             android:maxLines="1"
             android:textColor="@android:color/holo_blue_bright"
-            android:textSize="14sp"
+            android:textSize="@dimen/field_text_size"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,9 +111,9 @@
         android:id="@+id/limit_textinput_layout"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/default_margin"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="@dimen/layout_horizontal_margin"
         android:textColorHint="@android:color/holo_blue_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,14 +123,14 @@
             android:id="@+id/limit_int_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:digits="123456789"
+            android:digits="0123456789"
             android:hint="@string/la_limite"
             android:imeOptions="actionDone"
             android:inputType="number"
             android:maxLength="6"
             android:maxLines="1"
             android:textColor="@android:color/holo_blue_bright"
-            android:textSize="14sp"
+            android:textSize="@dimen/field_text_size"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
 

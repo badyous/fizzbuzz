@@ -10,4 +10,9 @@
     <string name="fizz_buzz">Fizz Buzz</string>
     <string name="valider">Valider</string>
     <string name="statistique">Statistique</string>
+    <string name="error_message_fields_should_not_be_empty">Tous les champs doivent être remplis</string>
+    <string name="error_limit_zero">La limite doit être strictement supérieur à 0</string>
+    <string name="error_string_equals">Les 2 mots doivent être différents</string>
+    <string name="error_int_equals">Les 2 chiffres doivent être différents</string>
+    <string name="error_int_zero">Les chiffres doivent être strictement supérieur à 0</string>
 </resources>
