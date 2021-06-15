@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/default_margin">
+
+    <TextView
+        android:id="@+id/statistic_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/holo_blue_light"
+        android:textStyle="bold"
+        app:drawableStartCompat="@android:drawable/ic_menu_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Form id : 12" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/statistic_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statistic_id">
+
+        <TextView
+            android:id="@+id/statistic_input1_int_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/le_premier_chiffre"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/statistic_input1_int"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/statistic_input1_int_field"
+            app:layout_constraintStart_toEndOf="@+id/statistic_input1_int_field"
+            app:layout_constraintTop_toTopOf="@+id/statistic_input1_int_field"
+            tools:text="3" />
+
+        <TextView
+            android:id="@+id/statistic_input2_int_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/le_second_chiffre"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statistic_input1_int_field" />
+
+        <TextView
+            android:id="@+id/statistic_input2_int"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/statistic_input2_int_field"
+            app:layout_constraintStart_toEndOf="@+id/statistic_input2_int_field"
+            app:layout_constraintTop_toTopOf="@+id/statistic_input2_int_field"
+            tools:text="3" />
+
+        <TextView
+            android:id="@+id/statistic_input1_string_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/le_premier_mot"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statistic_input2_int_field" />
+
+        <TextView
+            android:id="@+id/statistic_input1_string"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/statistic_input1_string_field"
+            app:layout_constraintStart_toEndOf="@+id/statistic_input1_string_field"
+            app:layout_constraintTop_toTopOf="@+id/statistic_input1_string_field"
+            tools:text="fizz" />
+
+        <TextView
+            android:id="@+id/statistic_input2_string_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/le_second_mot"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statistic_input1_string_field" />
+
+        <TextView
+            android:id="@+id/statistic_input2_string"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/statistic_input2_string_field"
+            app:layout_constraintStart_toEndOf="@+id/statistic_input2_string_field"
+            app:layout_constraintTop_toTopOf="@+id/statistic_input2_string_field"
+            tools:text="buzz" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/statistic_hit_view"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="@dimen/default_margin"
+        android:background="@android:color/holo_blue_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statistic_detail" />
+
+    <TextView
+        android:id="@+id/statistic_hit_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/statistic_hit_view"
+        app:layout_constraintTop_toBottomOf="@+id/statistic_hit_view"
+        tools:text="44" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/small_margin"
+        app:layout_constraintTop_toBottomOf="@id/statistic_hit_value" />
+</androidx.constraintlayout.widget.ConstraintLayout>
