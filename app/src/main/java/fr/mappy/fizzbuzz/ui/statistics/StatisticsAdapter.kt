@@ -9,14 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.mappy.fizzbuzz.R
 import fr.mappy.fizzbuzz.data.models.FormEntity
 import fr.mappy.fizzbuzz.databinding.StatisticFormLayoutBinding
-import fr.mappy.fizzbuzz.presentation.StatisticsViewModel
 import fr.mappy.fizzbuzz.utils.hide
 import fr.mappy.fizzbuzz.utils.show
 
 class StatisticsAdapter(
     private val context: Context,
-    private val systemWidth: Int,
-    private val viewModel: StatisticsViewModel
+    private val systemWidth: Int
 ) :
     RecyclerView.Adapter<StatisticsAdapter.StatisticsViewHolder>() {
 
@@ -24,10 +22,11 @@ class StatisticsAdapter(
     private var totalHits = 1
     private val density = Resources.getSystem().displayMetrics.density
 
-    fun setResultList(result: List<FormEntity>) {
-        resultList = result.sortedByDescending { formEntity -> formEntity.hits }
-        totalHits = viewModel.getTotalHits(resultList)
+    fun setResultList(result: List<FormEntity>, totalHits: Int) {
+        resultList = result
+        this.totalHits = totalHits
         notifyDataSetChanged()
+
     }
 
     inner class StatisticsViewHolder(private val binding: StatisticFormLayoutBinding) :
