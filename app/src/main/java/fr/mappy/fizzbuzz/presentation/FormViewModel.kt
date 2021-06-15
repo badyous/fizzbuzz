@@ -1,10 +1,17 @@
 package fr.mappy.fizzbuzz.presentation
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import fr.mappy.fizzbuzz.data.FormError
-import fr.mappy.fizzbuzz.domain.FormControllerHelper
+import fr.mappy.fizzbuzz.domain.form.FormControllerHelper
+import fr.mappy.fizzbuzz.domain.form.FormRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FormViewModel : ViewModel() {
+@HiltViewModel
+class FormViewModel @Inject constructor(private val formRepository: FormRepository) : ViewModel() {
 
     fun returnErrorIfExists(
         input1Int: Int?,
@@ -20,5 +27,16 @@ class FormViewModel : ViewModel() {
             input2Str,
             limit
         )
+    }
+
+    fun saveFormHit(
+        input1Int: Int,
+        input2Int: Int,
+        input1Str: String,
+        input2Str: String
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            formRepository.saveHitForForm(input1Int, input2Int, input1Str, input2Str)
+        }
     }
 }

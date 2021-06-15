@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 
 class ResultViewModel : ViewModel() {
 
-    private val resultCalculator: ResultCalculator by lazy { ResultCalculator() }
 
     private val resultList = MutableLiveData<List<String>>(listOf())
     val calculatedResultList: LiveData<List<String>> get() = resultList
@@ -24,7 +23,7 @@ class ResultViewModel : ViewModel() {
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             resultList.postValue(
-                resultCalculator.calculateResult(
+                ResultCalculator.calculateResult(
                     inputInt1,
                     inputInt2,
                     inputStr1,
@@ -33,6 +32,5 @@ class ResultViewModel : ViewModel() {
                 )
             )
         }
-
     }
 }

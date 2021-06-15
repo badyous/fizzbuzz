@@ -15,4 +15,7 @@
     <string name="error_string_equals">Les 2 mots doivent être différents</string>
     <string name="error_int_equals">Les 2 chiffres doivent être différents</string>
     <string name="error_int_zero">Les chiffres doivent être strictement supérieur à 0</string>
+    <string name="statistic_empty">Aucune statistique n\'est disponible pour l\'instant.\nCommencer par lancer quelques formulaires!</string>
+    <string name="statistic_top">TOP %1$d</string>
+    <string name="statistic_total_hits">TOP total hits : %1$d</string>
 </resources>

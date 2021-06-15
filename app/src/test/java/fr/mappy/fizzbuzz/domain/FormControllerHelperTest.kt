@@ -1,6 +1,7 @@
 package fr.mappy.fizzbuzz.domain
 
 import fr.mappy.fizzbuzz.data.FormError
+import fr.mappy.fizzbuzz.domain.form.FormControllerHelper
 import org.junit.Assert
 import org.junit.Test
 

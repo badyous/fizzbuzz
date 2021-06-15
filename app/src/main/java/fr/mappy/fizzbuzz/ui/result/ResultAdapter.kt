@@ -13,6 +13,7 @@ class ResultAdapter(private val context: Context) :
 
     fun setResultList(result: List<String>) {
         resultList = result
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {

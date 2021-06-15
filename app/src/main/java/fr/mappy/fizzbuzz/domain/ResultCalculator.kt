@@ -1,6 +1,6 @@
 package fr.mappy.fizzbuzz.domain
 
-class ResultCalculator {
+object ResultCalculator {
 
     fun calculateResult(
         inputInt1: Int,
