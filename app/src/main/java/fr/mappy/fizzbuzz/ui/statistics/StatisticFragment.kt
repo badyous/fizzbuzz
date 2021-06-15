@@ -1,10 +1,10 @@
 package fr.mappy.fizzbuzz.ui.statistics
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import fr.mappy.fizzbuzz.R
@@ -13,6 +13,9 @@ import fr.mappy.fizzbuzz.presentation.StatisticsViewModel
 import fr.mappy.fizzbuzz.utils.getScreenWidthPixels
 import fr.mappy.fizzbuzz.utils.hide
 import fr.mappy.fizzbuzz.utils.show
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class StatisticFragment : Fragment(R.layout.fragment_statistic) {
@@ -21,9 +24,10 @@ class StatisticFragment : Fragment(R.layout.fragment_statistic) {
     private val viewModel by activityViewModels<StatisticsViewModel>()
     private lateinit var adapter: StatisticsAdapter
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        adapter = StatisticsAdapter(requireContext(), requireActivity().getScreenWidthPixels(), viewModel)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        adapter =
+            StatisticsAdapter(requireContext(), requireActivity().getScreenWidthPixels())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,12 +45,18 @@ class StatisticFragment : Fragment(R.layout.fragment_statistic) {
         binding.statisticRecyclerView.adapter = adapter
         viewModel.statisticsResultList.observe(viewLifecycleOwner, {
             if (it.isNotEmpty()) {
-                binding.statisticsProgressbar.hide()
-                binding.statisticRecyclerView.show()
-                binding.statisticsEmpty.hide()
-                binding.statisticTotalValue.text =
-                    getString(R.string.statistic_total_hits, viewModel.getTotalHits(it))
-                adapter.setResultList(it)
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val sortedList = it.sortedByDescending { formEntity -> formEntity.hits }
+                    val totalHits = viewModel.getTotalHits(sortedList)
+                    withContext(Dispatchers.Main) {
+                        binding.statisticsProgressbar.hide()
+                        binding.statisticRecyclerView.show()
+                        binding.statisticsEmpty.hide()
+                        binding.statisticTotalValue.text =
+                            getString(R.string.statistic_total_hits, totalHits)
+                        adapter.setResultList(sortedList, totalHits)
+                    }
+                }
             } else {
                 binding.statisticsProgressbar.hide()
                 binding.statisticRecyclerView.hide()
