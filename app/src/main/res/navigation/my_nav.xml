@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/statisticFragment"
-        android:name="fr.mappy.fizzbuzz.ui.StatisticFragment"
+        android:name="fr.mappy.fizzbuzz.ui.statistics.StatisticFragment"
         android:label="Statistique"
         tools:layout="@layout/fragment_statistic" />
 </navigation>

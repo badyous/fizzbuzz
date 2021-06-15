@@ -6,22 +6,15 @@ import org.junit.Test
 
 class ResultCalculatorTest {
 
-    private lateinit var resultCalculator: ResultCalculator
-
-    @Before
-    fun setUp() {
-        resultCalculator = ResultCalculator()
-    }
-
     @Test
     fun checkResultSize() {
-        val result = resultCalculator.calculateResult(2, 4, "fizz", "buzz", 10)
+        val result = ResultCalculator.calculateResult(2, 4, "fizz", "buzz", 10)
         Assert.assertEquals(result.size, 10)
     }
 
     @Test
     fun checkResult() {
-        val result = resultCalculator.calculateResult(3, 5, "fizz", "buzz", 15)
+        val result = ResultCalculator.calculateResult(3, 5, "fizz", "buzz", 15)
 
         Assert.assertEquals(result[0], "1")
         Assert.assertEquals(result[1], "2")

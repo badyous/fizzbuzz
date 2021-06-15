@@ -6,13 +6,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import fr.mappy.fizzbuzz.R
 import fr.mappy.fizzbuzz.databinding.FragmentResultBinding
 import fr.mappy.fizzbuzz.presentation.ResultViewModel
 import fr.mappy.fizzbuzz.utils.hide
 import fr.mappy.fizzbuzz.utils.show
 
-
+@AndroidEntryPoint
 class ResultFragment : Fragment(R.layout.fragment_result) {
 
     private val viewModel by activityViewModels<ResultViewModel>()

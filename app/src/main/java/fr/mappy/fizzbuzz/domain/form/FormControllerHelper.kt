@@ -1,4 +1,4 @@
-package fr.mappy.fizzbuzz.domain
+package fr.mappy.fizzbuzz.domain.form
 
 import fr.mappy.fizzbuzz.data.FormError
 
