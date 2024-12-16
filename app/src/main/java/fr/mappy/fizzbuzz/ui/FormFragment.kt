@@ -6,6 +6,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import fr.mappy.fizzbuzz.R
 import fr.mappy.fizzbuzz.data.FormError
@@ -18,13 +21,14 @@ class FormFragment : Fragment(R.layout.fragment_form) {
 
     private lateinit var binding: FragmentFormBinding
     private val viewModel by activityViewModels<FormViewModel>()
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentFormBinding.bind(view)
+        firebaseAnalytics = Firebase.analytics
 
         addViewListeners()
-
     }
 
     private fun addViewListeners() {
@@ -33,6 +37,9 @@ class FormFragment : Fragment(R.layout.fragment_form) {
         }
 
         binding.statisticButton.setOnClickListener {
+            firebaseAnalytics.logEvent("statistics_button_click") {
+                param("button_name", "Statistics")
+            }
             findNavController().navigate(FormFragmentDirections.actionFormFragmentToStatisticFragment())
         }
     }
@@ -64,6 +71,11 @@ class FormFragment : Fragment(R.layout.fragment_form) {
                 input1Str,
                 input2Str
             )
+
+            firebaseAnalytics.logEvent("validate_button_click") {
+                param("button_name", "Validate")
+            }
+
             findNavController().navigate(
                 FormFragmentDirections.actionFormFragmentToResultFragment(
                     input1Int,
@@ -73,6 +85,10 @@ class FormFragment : Fragment(R.layout.fragment_form) {
                     binding.limitIntInput.text.toInt()!!
                 )
             )
+
+            firebaseAnalytics.logEvent("navigate_to_result_screen") {
+                param("screen_name", "Result")
+            }
         }
     }
 

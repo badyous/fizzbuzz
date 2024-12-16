@@ -17,6 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.firebase.analytics.APP_MEASUREMENT_SERVICE"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.firebase.analytics.MEASUREMENT_ID"
+            android:value="G-XXXXXXXXXX" />
     </application>
 
 </manifest>
